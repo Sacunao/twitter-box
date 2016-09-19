@@ -1,4 +1,5 @@
 ##EJERCCIO TWITTER-BOX
+
 Tener un contenedor vacío que acumule los mensajes
 1. Formulario: TextArea y Botón.
 2. Evento para el click del botón 
@@ -6,4 +7,4 @@ Tener un contenedor vacío que acumule los mensajes
 4. Darle formato al texto del TextArea.
 5. Agregar el texto formateado al contenedor.
 
-![Imagen]( "Imagen")
+![Imagen](http://4.1m.yt/rupm60j.png "Imagen")

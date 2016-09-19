@@ -1,6 +1,7 @@
 window.addEventListener("load", function() {
 	var boton = document.getElementById("tweetear");
-	boton.addEventListener("click", function() {
+	boton.addEventListener("click", function(e) {
+        e.preventDefault();
 		var texto = document.getElementById("textBox").value;
 		newTweet(texto);
         document.getElementById("textBox").value = "";

@@ -2,9 +2,10 @@ window.addEventListener("load", function() {
 	var boton = document.getElementById("tweetear");
 	boton.addEventListener("click", function(e) {
         e.preventDefault();
-		var texto = document.getElementById("textBox").value;
+        var textArea = document.getElementById("textBox")
+		var texto = textArea.value;
 		newTweet(texto);
-        document.getElementById("textBox").value = "";
+        textArea.value = "";
 
 	});
 

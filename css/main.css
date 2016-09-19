@@ -2,6 +2,7 @@ html, body {
 	height: 100%;
 	width: 100%;
 	font-family: verdana;
+    font-size: 16px;
 }
 body{
 	background: url(../image/bici.jpg) no-repeat;
@@ -17,6 +18,7 @@ body{
 
 /*-------Formulario------*/
 .content{
+    width: 80%;
 	background-color: rgba(42,42,42,0.7);
 	padding: 2% 5%;
 	text-align: center;
@@ -26,19 +28,20 @@ body{
 
 .content h3{
     text-align: left;
-    font-size: 22px;
+    font-size: 1.5em;
 }
 .content textarea{
+    width: 100%;
     border-radius: 5px;
-    font-size: 18px;
+    font-size: 1.2em;
 }
 
 .btn {
     background-color: black;
     color: white;
     border: none;
-    padding: 10px 60px;
-    margin-top: 10px;  
+    padding: 0.6em 3.75em;
+    margin-top: 0.6em;  
     border-radius: 5px;
 }
 
@@ -50,9 +53,31 @@ body{
     background-color: white;
     color: black;
     border: none;
-    margin: 8px 0px;
+    margin: 0.5em 0px;
     text-align: left;
-    padding: 5px;
-    font-size: 15px;
+    padding: 0.3em;
+    font-size: 0.9em;
     border-radius: 5px;
+}
+
+@media (max-width: 1024px){
+	body{
+	font-size: 16px;
+	}
+}
+@media (max-width: 982px){
+	body{
+	font-size: 14px;
+	}
+}
+@media (max-width: 768px){
+	body{
+	font-size: 14px;
+	}
+}
+
+@media (max-width: 640px){
+	body{
+	font-size: 12px;
+	}
 }

@@ -30,7 +30,7 @@ body{
     font-size: 1.5em;
 }
 .content textarea{
-    width: 100%;
+    width: 90%;
     border-radius: 5px;
     font-size: 1.2em;
     overflow: hidden;
@@ -63,6 +63,7 @@ body{
 }
 
 .tweetDiv {
+    width: 100%;
     background-color: white;
     color: black;
     border: none;

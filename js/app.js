@@ -13,14 +13,13 @@ window.addEventListener("load", function() {
         tweet.className = "tweetDiv";
         var contenedor = document.getElementById("contenedor");
         tweet.innerText = texto;
-        
         if(!contenedor.childNodes[0]){
             contenedor.appendChild(tweet);
         } else {
             contenedor.insertBefore(tweet,contenedor.childNodes[0]);
         }
 	}
-    textBox.addEventListener("keypress", function() {
+    textBox.addEventListener("keydown", function() {
         boton.disabled = false;
         count();
 	});

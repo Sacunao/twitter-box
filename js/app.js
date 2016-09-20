@@ -10,6 +10,7 @@ window.addEventListener("load", function() {
 		var texto = textArea.value;
 		newTweet(texto);
         textArea.value = "";
+        boton.disabled = false;
 
 	});
 
@@ -26,13 +27,14 @@ window.addEventListener("load", function() {
         }
 	}
     
-    textBox.addEventListener("keydown", function() {
+    textBox.addEventListener("keyup", function() {
         boton.disabled = false;
         countAndColor(maximo, color);
+        countEnter();
 	});
     
     
-     function countAndColor(maximo, color){
+    function countAndColor(maximo, color){
         var limite = 140;
         var textValue = document.getElementById("textBox").value;
         var largo = textValue.length;
@@ -40,20 +42,33 @@ window.addEventListener("load", function() {
         contador.innerHTML = limite - largo;
 
         if(largo >= maximo[0] && largo < maximo[1]) {  //largo >= 120 y largo < 130
-        		contador.classList.remove(color[1]);
- 				contador.classList.add(color[0]);
+                contador.classList.remove(color[1]);
+                contador.classList.add(color[0]);
         } else if(largo >= maximo[1] && largo < maximo[2]) {  //largo >= 130 y largo < 140
-        		contador.classList.remove(color[0]);
-        		contador.classList.remove(color[2]);
-        		contador.classList.add(color[1]);	
+                contador.classList.remove(color[0]);
+                contador.classList.remove(color[2]);
+                contador.classList.add(color[1]);	
         } else if(largo >= maximo[2]){//largo >= 140
-        		contador.classList.remove(color[1]);
-        		contador.classList.add(color[2]);
-        		boton.disabled = true;
+                contador.classList.remove(color[1]);
+                contador.classList.add(color[2]);
+                boton.disabled = true;
         } else {
-        		for(var i = 0; i < maximo.length-1; i++){
-        			contador.classList.remove(color[i]);		
-        		};
+                for(var i = 0; i < maximo.length-1; i++){
+                    contador.classList.remove(color[i]);		
+                };
         }     
-     } 
+    } 
+    
+    function countEnter(){
+        var text = document.getElementById("textBox");
+        var espacios = text.value.match(/\n/g);
+        var contador = espacios.length;
+        if(contador > 0){
+            text.setAttribute("rows", contador);
+            boton.disabled = true;
+        }else {
+            text.setAttribute("rows", 5);
+        }
+  
+    }
 });

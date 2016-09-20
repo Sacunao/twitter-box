@@ -7,9 +7,10 @@ window.addEventListener("load", function() {
 	boton.addEventListener("click", function(e) {
         e.preventDefault();
         var textArea = document.getElementById("textBox");
-		var texto = textArea.value;
+		var texto = textArea.value.trim();
 		newTweet(texto);
         textArea.value = "";
+        contador.textContent = "140";
         boton.disabled = false;
 
 	});
@@ -61,14 +62,17 @@ window.addEventListener("load", function() {
     
     function countEnter(){
         var text = document.getElementById("textBox");
+        var textSinEspacios = text.value.trim().length;
         var espacios = text.value.match(/\n/g);
-        var contador = espacios.length;
-        if(contador > 0){
-            text.setAttribute("rows", contador);
-            boton.disabled = true;
-        }else {
-            text.setAttribute("rows", 5);
+        var cantEnters = espacios.length;
+        
+        if(textSinEspacios === 0){
+            boton.disabled = true; 
         }
+        if(cantEnters > 4){
+            text.setAttribute("rows", cantEnters);
+        }
+        
   
     }
 });

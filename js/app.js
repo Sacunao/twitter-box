@@ -39,7 +39,7 @@ window.addEventListener("load", function() {
         var hora = document.createElement("span");
         hora.innerText = horaImprimible;
 
-        nuevo.insertBefore(hora,nuevo.childNodes[0]);  
+        nuevo.insertBefore(hora,nuevo.childNodes[0]); 
     }
 
 
@@ -90,7 +90,7 @@ window.addEventListener("load", function() {
     }
     
     var textarea = document.querySelector("textarea");
-    textarea.addEventListener('keydown', autosize);
+    textarea.addEventListener("keypress", autosize);
              
     function autosize(){
         var el = this;

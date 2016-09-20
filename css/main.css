@@ -35,7 +35,7 @@ body{
     font-size: 1.2em;
     overflow: hidden;
     padding:0.6em;
-    margin:2em auto;
+    margin:0.3em auto;
     display:block;
     border:0.3em solid #556677; 
 }
@@ -60,14 +60,15 @@ body{
     color: black;
     background-color: white;
     text-align: center;
+    margin: auto;
 }
 
 .tweetDiv {
-    width: 100%;
+    width: 90%;
     background-color: white;
     color: black;
     border: none;
-    margin: 0.5em 0px;
+    margin: 0.5em auto;
     text-align: left;
     padding: 0.3em;
     font-size: 0.9em;
@@ -85,6 +86,7 @@ body{
     color: darkturquoise;
 }
 
+/*-----Responsive--------*/
 @media (max-width: 1024px){
 	body{
 	font-size: 16px;

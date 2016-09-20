@@ -1,4 +1,7 @@
 window.addEventListener("load", function() {
+    var color = ["violet","turquesa","red"];
+    var maximo = [120, 130, 140];
+
 	var boton = document.getElementById("tweetear");
     boton.disabled = true; //Por defecto
 	boton.addEventListener("click", function(e) {
@@ -7,33 +10,50 @@ window.addEventListener("load", function() {
 		var texto = textArea.value;
 		newTweet(texto);
         textArea.value = "";
+
 	});
+
 	function newTweet (texto) {
         var tweet = document.createElement("div");
         tweet.className = "tweetDiv";
         var contenedor = document.getElementById("contenedor");
         tweet.innerText = texto;
+        
         if(!contenedor.childNodes[0]){
             contenedor.appendChild(tweet);
         } else {
             contenedor.insertBefore(tweet,contenedor.childNodes[0]);
         }
 	}
+    
     textBox.addEventListener("keydown", function() {
         boton.disabled = false;
-        count();
+        countAndColor(maximo, color);
 	});
-     function count(maximo){
-        var maximo = 140;
-        var textValue = document.getElementById("textBox").value
+    
+    
+     function countAndColor(maximo, color){
+        var limite = 140;
+        var textValue = document.getElementById("textBox").value;
         var largo = textValue.length;
         var contador =  document.getElementById("contador");
-        contador.innerHTML = maximo-largo;
-        if(largo >= maximo) { 
-              contador.classList.add("red");
-              boton.disabled = true; 
-        } else { 
-              contador.classList.remove("red");
-        }   
-     }    
+        contador.innerHTML = limite - largo;
+
+        if(largo >= maximo[0] && largo < maximo[1]) {  //largo >= 120 y largo < 130
+        		contador.classList.remove(color[1]);
+ 				contador.classList.add(color[0]);
+        } else if(largo >= maximo[1] && largo < maximo[2]) {  //largo >= 130 y largo < 140
+        		contador.classList.remove(color[0]);
+        		contador.classList.remove(color[2]);
+        		contador.classList.add(color[1]);	
+        } else if(largo >= maximo[2]){//largo >= 140
+        		contador.classList.remove(color[1]);
+        		contador.classList.add(color[2]);
+        		boton.disabled = true;
+        } else {
+        		for(var i = 0; i < maximo.length-1; i++){
+        			contador.classList.remove(color[i]);		
+        		};
+        }     
+     } 
 });

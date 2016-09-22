@@ -14,7 +14,8 @@ window.addEventListener("load", function() {
         boton.disabled = true;
 
 	});
-
+    
+    //INSERTANDO TWEETS
 	function newTweet (texto) {
         var tweet = document.createElement("div");
         tweet.innerHTML = texto;
@@ -28,6 +29,8 @@ window.addEventListener("load", function() {
         }
         agregarHora(tweet);
 	}
+    
+    
     function agregarHora(nuevo){
         var fecha = new Date();
         var hora = fecha.getHours();
@@ -66,6 +69,7 @@ window.addEventListener("load", function() {
                 contador.classList.add(color[1]);	
         } else if(largo >= maximo[2]){//largo >= 140
                 contador.classList.remove(color[1]);
+                contador.classList.remove(color[0]);
                 contador.classList.add(color[2]);
                 boton.disabled = true;
         } else {

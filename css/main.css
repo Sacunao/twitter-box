@@ -49,10 +49,6 @@ body{
     border-radius: 5px;
 }
 
-/*
-.btn:hover{
-    background-color: grey;
-}*/
 
 .contador {
     width: 3em;
@@ -84,6 +80,11 @@ body{
 
 .turquesa {
     color: darkturquoise;
+}
+
+.time{
+    font-style: italic;
+    font-weight: bold;
 }
 
 /*-----Responsive--------*/

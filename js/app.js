@@ -6,8 +6,7 @@ window.addEventListener("load", function() {
 
 	boton.addEventListener("click", function(e) {
         e.preventDefault();
-        //var textArea = document.getElementById("textBox");
-		var texto = document.getElementById("textBox");
+       	var texto = document.getElementById("textBox");
 		newTweet(texto.value);
         texto.value = "";
         contador.textContent = "140";
@@ -24,13 +23,19 @@ window.addEventListener("load", function() {
 
         if(!contenedor.childNodes[0]){
             contenedor.appendChild(tweet);
+            agregarHora(tweet);
         } else {
             contenedor.insertBefore(tweet,contenedor.childNodes[0]);
         }
-        agregarHora(tweet);
+        
 	}
     
-    
+    textBox.addEventListener("keyup", function() {
+        boton.disabled = false;
+        countAndColor(maximo, color);
+        countEnter(text);
+    });
+
     function agregarHora(nuevo){
         var fecha = new Date();
         var hora = fecha.getHours();
@@ -40,19 +45,13 @@ window.addEventListener("load", function() {
             }
         var horaImprimible = hora + " : " + minuto + " " ;
         var hora = document.createElement("span");
+        hora.classList.add("time");
         hora.innerText = horaImprimible;
 
         nuevo.insertBefore(hora,nuevo.childNodes[0]); 
     }
 
-
-    textBox.addEventListener("keyup", function() {
-        boton.disabled = false;
-        countAndColor(maximo, color);
-        countEnter(text);
-	});
-    
-    
+  
     function countAndColor(maximo, color){
         var limite = 140;
         var textValue = document.getElementById("textBox").value;

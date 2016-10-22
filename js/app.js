@@ -26,6 +26,7 @@ window.addEventListener("load", function() {
             agregarHora(tweet);
         } else {
             contenedor.insertBefore(tweet,contenedor.childNodes[0]);
+            agregarHora(tweet);
         }
         
 	}

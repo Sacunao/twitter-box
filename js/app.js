@@ -1,18 +1,24 @@
-window.addEventListener("load", function() {
+ ;(function(){   
     var color = ["violet","turquesa","red"];
     var maximo = [120, 130, 140];
-	var boton = document.getElementById("tweetear");
+    var boton = document.getElementById("tweetear");
     boton.disabled = true; //Por defecto
 
-	boton.addEventListener("click", function(e) {
+    window.addEventListener("load", cargarPagina); 
+
+    function cargarPagina() {
+    	boton.addEventListener("click", crearTweet);
+    }
+
+    function crearTweet(e) {
         e.preventDefault();
-       	var texto = document.getElementById("textBox");
-		newTweet(texto.value);
+        var texto = document.getElementById("textBox");
+        newTweet(texto.value);
         texto.value = "";
         contador.textContent = "140";
         boton.disabled = true;
 
-	});
+    }
     
     //INSERTANDO TWEETS
 	function newTweet (texto) {
@@ -103,6 +109,6 @@ window.addEventListener("load", function() {
             el.style.cssText = 'height:' + el.scrollHeight + 'px';
         },0);
     }
-});
 
+})();
  
